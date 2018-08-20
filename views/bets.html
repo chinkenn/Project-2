@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>GitBet</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="public/styles/styles.css">
+
+</head>
+
+<body>
+    <div id="activitybuttons">
+        <button id="current">Current</button>
+        <button id="past">Past</button>
+        <button id="outstanding">Outstanding</button>
+    </div>
+    <div class="container" id="currenttable">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">
+                    Current Bets
+                </h1>
+                <h3 class="text-center"></h3>
+            </div>
+            <div id="currenttable">
+                <table class="col-md-12 table-bordered table-striped table-condensed cf">
+                    <thead class="cf">
+                        <tr>
+                            <th>Over/Win</th>
+                            <th>Under/Loss</th>
+                            <th class="numeric">Amount</th>
+                            <th>Event</th>
+                            <th>Result</th>
+                            <th>End Date</th>
+                            <th>Paid</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-title="Over/Win">Anthony</td>
+                            <td data-title="Under/Loss">Brian</td>
+                            <td data-title="Amount" class="numeric">10</td>
+                            <td data-title="Event">Browns Won</td>
+                            <td data-title="Result">Anthony Wins</td>
+                            <td data-title="End Date">8/8/18</td>
+                            <td data-title="Paid">Yes</td>
+                        </tr>
+                        <tr>
+                            <td data-title="Over/Win">Brian</td>
+                            <td data-title="Under/Loss">Ken</td>
+                            <td data-title="Amount" class="numeric">15</td>
+                            <td data-title="Event">Indians Won</td>
+                            <td data-title="Result">Brian Wins</td>
+                            <td data-title="End Date">8/8/18</td>
+                            <td data-title="Paid">Yes</td>
+                        </tr>
+                        <tr>
+                            <td data-title="Over/Win">Stacy</td>
+                            <td data-title="Under/Loss">Anthony</td>
+                            <td data-title="Amount" class="numeric">5</td>
+                            <td data-title="Event">Cavs Win</td>
+                            <td data-title="Result">Stacy wins</td>
+                            <td data-title="End Date">8/8/18</td>
+                            <td data-title="Paid">Yes</td>
+                        </tr>
+                        <tr>
+                            <td data-title="Over/Win">Ken</td>
+                            <td data-title="Under/Loss">Stacy</td>
+                            <td data-title="Amount" class="numeric">100</td>
+                            <td data-title="Event">Hit a homerun</td>
+                            <td data-title="Result">Ken Wins</td>
+                            <td data-title="End Date">8/8/18</td>
+                            <td data-title="Paid">Yes</td>
+                        </tr>
+                        <tr>
+                            <td data-title="Over/Win">Anthony</td>
+                            <td data-title="Under/Loss">Ken</td>
+                            <td data-title="Amount" class="numeric">1</td>
+                            <td data-title="Event">Ate 10 hotdogs</td>
+                            <td data-title="Result">Anthony Wins</td>
+                            <td data-title="End Date">8/8/18</td>
+                            <td data-title="Paid">Yes</td>
+                        </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+    <div class="container" id="pasttable">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">
+                    Past Bets
+                </h1>
+                <h3 class="text-center"></h3>
+            </div>
+            <div id="no-more-tables">
+                <table class="col-md-12 table-bordered table-striped table-condensed cf">
+                    <thead class="cf">
+                        <tr>
+                            <th>Over/Win</th>
+                            <th>Under/Loss</th>
+                            <th class="numeric">Amount</th>
+                            <th>Event</th>
+                            <th>Result</th>
+                            <th>End Date</th>
+                            <th>Paid</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-title="Over/Win">Anthony</td>
+                            <td data-title="Under/Loss">Brian</td>
+                            <td data-title="Amount" class="numeric">10</td>
+                            <td data-title="Event">Browns Won</td>
+                            <td data-title="Result">Anthony Wins</td>
+                            <td data-title="End Date">8/8/18</td>
+                            <td data-title="Paid">Yes</td>
+                        </tr>
+                        <tr>
+                            <td data-title="Over/Win">Brian</td>
+                            <td data-title="Under/Loss">Ken</td>
+                            <td data-title="Amount" class="numeric">15</td>
+                            <td data-title="Event">Indians Won</td>
+                            <td data-title="Result">Brian Wins</td>
+                            <td data-title="End Date">8/8/18</td>
+                            <td data-title="Paid">Yes</td>
+                        </tr>
+                        <tr>
+                            <td data-title="Over/Win">Stacy</td>
+                            <td data-title="Under/Loss">Anthony</td>
+                            <td data-title="Amount" class="numeric">5</td>
+                            <td data-title="Event">Cavs Win</td>
+                            <td data-title="Result">Stacy wins</td>
+                            <td data-title="End Date">8/8/18</td>
+                            <td data-title="Paid">Yes</td>
+                        </tr>
+                        <tr>
+                            <td data-title="Over/Win">Ken</td>
+                            <td data-title="Under/Loss">Stacy</td>
+                            <td data-title="Amount" class="numeric">100</td>
+                            <td data-title="Event">Hit a homerun</td>
+                            <td data-title="Result">Ken Wins</td>
+                            <td data-title="End Date">8/8/18</td>
+                            <td data-title="Paid">Yes</td>
+                        </tr>
+                        <tr>
+                            <td data-title="Over/Win">Anthony</td>
+                            <td data-title="Under/Loss">Ken</td>
+                            <td data-title="Amount" class="numeric">1</td>
+                            <td data-title="Event">Ate 10 hotdogs</td>
+                            <td data-title="Result">Anthony Wins</td>
+                            <td data-title="End Date">8/8/18</td>
+                            <td data-title="Paid">Yes</td>
+                        </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+
+        </div>
+    </div>
+    <div class="container" id="outstandingtable">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">
+                    Outstanding Bets
+                </h1>
+                <h3 class="text-center"></h3>
+            </div>
+            <div id="no-more-tables">
+                <table class="col-md-12 table-bordered table-striped table-condensed cf">
+                    <thead class="cf">
+                        <tr>
+                            <th>Over/Win</th>
+                            <th>Under/Loss</th>
+                            <th class="numeric">Amount</th>
+                            <th>Event</th>
+                            <th>Result</th>
+                            <th>End Date</th>
+                            <th>Paid</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-title="Over/Win">Anthony</td>
+                            <td data-title="Under/Loss">Brian</td>
+                            <td data-title="Amount" class="numeric">10</td>
+                            <td data-title="Event">Browns Won</td>
+                            <td data-title="Result">Anthony Wins</td>
+                            <td data-title="End Date">8/8/18</td>
+                            <td data-title="Paid">Yes</td>
+                        </tr>
+                        <tr>
+                            <td data-title="Over/Win">Brian</td>
+                            <td data-title="Under/Loss">Ken</td>
+                            <td data-title="Amount" class="numeric">15</td>
+                            <td data-title="Event">Indians Won</td>
+                            <td data-title="Result">Brian Wins</td>
+                            <td data-title="End Date">8/8/18</td>
+                            <td data-title="Paid">Yes</td>
+                        </tr>
+                        <tr>
+                            <td data-title="Over/Win">Stacy</td>
+                            <td data-title="Under/Loss">Anthony</td>
+                            <td data-title="Amount" class="numeric">5</td>
+                            <td data-title="Event">Cavs Win</td>
+                            <td data-title="Result">Stacy wins</td>
+                            <td data-title="End Date">8/8/18</td>
+                            <td data-title="Paid">Yes</td>
+                        </tr>
+                        <tr>
+                            <td data-title="Over/Win">Ken</td>
+                            <td data-title="Under/Loss">Stacy</td>
+                            <td data-title="Amount" class="numeric">100</td>
+                            <td data-title="Event">Hit a homerun</td>
+                            <td data-title="Result">Ken Wins</td>
+                            <td data-title="End Date">8/8/18</td>
+                            <td data-title="Paid">Yes</td>
+                        </tr>
+                        <tr>
+                            <td data-title="Over/Win">Anthony</td>
+                            <td data-title="Under/Loss">Ken</td>
+                            <td data-title="Amount" class="numeric">1</td>
+                            <td data-title="Event">Ate 10 hotdogs</td>
+                            <td data-title="Result">Anthony Wins</td>
+                            <td data-title="End Date">8/8/18</td>
+                            <td data-title="Paid">Yes</td>
+                        </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+
+        </div>
+    </div>
+    <div class="container" id="recordtable">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">
+                    Record
+                </h1>
+                <h3 class="text-center"></h3>
+            </div>
+            <div id="no-more-tables">
+                <table class="col-md-12 table-bordered table-striped table-condensed cf">
+                    <thead class="cf">
+                        <tr>
+                            <th class="numeric">Wins</th>
+                            <th class="numeric">Losses</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+
+                            <td data-title="Wins" class="numeric">10</td>
+                            <td data-title="Losses" class="numeric">10</td>
+
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+
+        </div>
+    </div>
+
+</body>
+<script>
+    $(document).ready(function () {
+        $("#pasttable").hide();
+        $("#outstandingtable").hide();
+        $("#current").click(function () {
+            $("#currenttable").show();
+            $("#pasttable").hide();
+            $("#outstandingtable").hide();
+        });
+        $("#past").click(function () {
+            $("#pasttable").show();
+            $("#currenttable").hide();
+            $("#outstandingtable").hide();
+        });
+        $("#outstanding").click(function () {
+            $("#outstandingtable").show();
+            $("#currenttable").hide();
+            $("#pasttable").hide();
+        });
+    });
+</script>
+
+</html>

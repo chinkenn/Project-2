@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <!-- Latest compiled and minified CSS & JS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css"
+  />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+  <link rel="stylesheet" href="styles/styles.css">
+
+
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+
+  <!-- $ npm install bootstrap-select -->
+  <title>gitbet</title>
+
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">
+                    <img src="/images/gitbet-logo.png" style="width:78px; top; margin-top: -8px;">
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="/">Home</a>
+                    </li>
+                    <li>
+                        <a href="/createbet">Create Bet</a>
+                    </li>
+                    <li>
+                        <a href="/balance">Balance</a>
+                    </li>
+                    <li>
+                        <a href="/friends">View Pals</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                  <!--   <li>
+                        <a href="index">
+                            <span class="glyphicon glyphicon-user"></span> Sign Up</a>
+                    </li> -->
+                    <li>
+                        <a href="index">
+                            <span class="glyphicon glyphicon-log-in"></span> Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+    <div class="container">
+      <div class="jumbotron">
+        <div id="activitybuttons" class="text-center">
+            <button id="current" class="btn btn-primary btn-lg">Current</button>
+            <button id="past" class="btn btn-primary btn-lg">Past</button>
+            <button id="outstanding" class="btn btn-primary btn-lg">Outstanding</button>
+        </div>
+        <div class="container" id="currenttable">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="text-center" id="table-title"></h2>
+                    <h2 class="text-center"></h2>
+                </div>
+                <div id="currenttable">
+                    <table class="col-md-12 table-bordered table-striped table-condensed cf" id="main-info">
+                        <thead class="cf">
+                            <tr>
+                                <th>Over/Win</th>
+                                <th>Under/Loss</th>
+                                <th class="numeric">Amount</th>
+                                <th>Event</th>
+                                <th>Result</th>
+                                <th>End Date</th>
+                                <th>Paid</th>
+                                <th id="pick-winner">Pick Winner</th>
+                            </tr>
+                        </thead>
+                        <tbody id="data-table">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+   <!--  <div class="container" id="recordtable" style="padding-top: 20px;">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">
+                    <h2>Record</h2>
+                </h1>
+                <h3 class="text-center"></h3>
+            </div>
+            <div id="no-more-tables">
+                <table class="col-md-12 table-bordered table-striped table-condensed cf">
+                    <thead class="cf">
+                        <tr>
+                            <th class="numeric">Wins</th>
+                            <th class="numeric">Losses</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-title="Wins" class="numeric">10</td>
+                            <td data-title="Losses" class="numeric">10</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div> -->
+</body>
+<script>
+    $(document).ready(function () {
+        var button = ('<td><div class="btn-group" role = "group" aria - label="Basic example" ><button type="button" id="overWin" class="btn btn-secondary">Over/Win</button><button type="button" id="underLose" class="btn btn-secondary">Under/Lose</button></div ></td>')
+        $.get("/api/bets/current", function (data) {
+            console.log(data);
+            $("#table-title").text("Current Bets");
+            $("#pick-winner").show();
+            for (i = 0; i < data.length; i++) {
+                $("#data-table").append("<tr data-id=" + data[i].id + "><td>" + data[i].over_win + "</td><td>" +
+                    data[i].under_lose + "</td><td>" + data[i].amount + "</td><td>" + data[i].event + "</td><td>" +
+                    data[i].winner + "</td><td>" + data[i].end_date + "</td><td>" + data[i].is_paid + "</td>" + button);
+            }
+        })
+        $("#current").click(function () {
+            $("#data-table").empty();
+            $("#table-title").empty();
+            $("#pick-winner").show();
+            $("#table-title").text("Current Bets");
+            $.get("/api/bets/current", function (data) {
+                console.log(data);
+                // var button = ('<td><div class="btn-group" role = "group" aria - label="Basic example" ><button type="button" id="overWin" class="btn btn-secondary">Over/Win</button><button type="button" id="underLose"class="btn btn-secondary">Under/Lose</button></div ></td>')
+                for (i = 0; i < data.length; i++) {
+                    $("#data-table").append("<tr data-id=" + data[i].id + "><td>" + data[i].over_win + "</td><td>" +
+                        data[i].under_lose + "</td><td>" + data[i].amount + "</td><td>" + data[i].event + "</td><td>" +
+                        data[i].winner + "</td><td>" + data[i].end_date + "</td><td>" + data[i].is_paid + "</td>" + button);
+                }
+            })
+        });
+        $("#past").click(function () {
+            $("#data-table").empty();
+            $("#table-title").empty();
+            $("#pick-winner").hide();
+            // $("#main-info > tr").eq(1).children('th').eq(8).remove();
+            $("#table-title").text("Past Bets");
+            $.get("/api/bets/past", function (data) {
+                console.log(data);
+                for (i = 0; i < data.length; i++) {
+                    $("#data-table").append("<tr data-id=" + data[i].id + "><td>" + data[i].over_win + "</td><td>" +
+                        data[i].under_lose + "</td><td>" + data[i].amount + "</td><td>" + data[i].event + "</td><td>" +
+                        data[i].winner + "</td><td>" + data[i].end_date + "</td><td>" + data[i].is_paid + "</td>");
+                }
+            })
+        });
+        $("#outstanding").click(function () {
+            $("#data-table").empty();
+            $("#table-title").empty();
+            $("#table-title").text("Outstanding Bets");
+            $("#pick-winner").show();
+            $.get("/api/bets/outstanding", function (data) {
+                console.log(data);
+                // var button = ('<td><div class="btn-group" role = "group" aria - label="Basic example" ><button type="button" id="overWin" class="btn btn-secondary">Over/Win</button><button type="button" id="underLose" class="btn btn-secondary">Under/Lose</button></div ></td>')
+                for (i = 0; i < data.length; i++) {
+                    $("#data-table").append("<tr data-id=" + data[i].id + "><td>" + data[i].over_win + "</td><td>" +
+                        data[i].under_lose + "</td><td>" + data[i].amount + "</td><td>" + data[i].event + "</td><td>" +
+                        data[i].winner + "</td><td>" + data[i].end_date + "</td><td>" + data[i].is_paid + "</td>" + button);
+                }
+            });
+        });
+        $("#data-table").on("click", "#overWin", function () {
+            var id = $(this).parent().parent().parent().attr("data-id");
+            $.get("/api/bets/id/" + id, function (data) {
+                console.log(data);
+                var winner = data.over_win;
+                data.winner = winner;
+                $.ajax({
+                    method: "PUT",
+                    url: "/api/bets",
+                    data: data
+                })
+                    .then(function () {
+                        window.location.href = "/";
+                    });
+            });
+        });
+        $("#data-table").on("click", "#underLose", function () {
+            var id = $(this).parent().parent().parent().attr("data-id");
+            $.get("/api/bets/id/" + id, function (data) {
+                console.log(data);
+                var winner = data.under_lose;
+                data.winner = winner;
+                $.ajax({
+                    method: "PUT",
+                    url: "/api/bets",
+                    data: data
+                })
+                    .then(function () {
+                        window.location.href = "/";
+                    });
+            });
+        });
+    });
+</script>
+
+</html>

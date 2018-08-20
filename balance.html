@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <!-- Latest compiled and minified CSS & JS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css"
+  />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+  <link rel="stylesheet" href="styles/styles.css">
+
+
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+
+  <!-- $ npm install bootstrap-select -->
+  <title>gitbet</title>
+
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">
+                    <img src="/images/gitbet-logo.png" style="width:78px; top; margin-top: -8px;">
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    <li>
+                        <a href="/createbet">Create Bet</a>
+                    </li>
+                    <li  class="active">
+                        <a href="/balance">Balance</a>
+                    </li>
+                    <li>
+                        <a href="/friends">View Pals</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                  <!--   <li>
+                        <a href="index">
+                            <span class="glyphicon glyphicon-user"></span> Sign Up</a>
+                    </li> -->
+                    <li>
+                        <a href="index">
+                            <span class="glyphicon glyphicon-log-in"></span> Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+    <div class="container">
+      <div class="jumbotron">
+	<header>
+		<h2 class="text-center">Check your balance</h2>
+	</header>
+	<main>
+		<div class="container">
+			<form role="form">
+				<div class="row" id="collection">
+					<!-- <div class="col col-md-6" style="padding-top: 20px;">
+						<h4>You owe Ken $5 for Indians over White Sox</h4>
+						<button class="btn btn-danger">PAY NOW</button>
+					</div>
+					<div class="col col-md-6" style="padding-top: 20px;">
+						<h4>You owe [better_id] [bet_amount] for [bet_event]</h4>
+						<button class="btn btn-danger">PAY NOW</button>
+					</div>
+					<div class="col col-md-6" style="padding-top: 20px;">
+						<h4>[better_id] owes you [bet_amount] for [bet_event]</h4>
+						<button class="btn btn-success">COLLECT PAYMENT</button>
+					</div> -->
+				</div>
+			</form>
+
+			<!-- container for calendar/date-picker -->
+			<!-- <div class="container" id='datepicker-container'>
+				<div class="row">
+					<div class='col-sm-12'>
+						<div class="form-group">
+							<div class="row">
+								<div class="col-md-8">
+									<div class='date' id='datetimepicker'>
+										<span class="input-group">
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div> -->
+			
+
+
+
+
+				<!-- basic modal -->
+				<!-- <div class="modal fade" id="addBetter" tabindex="-1" role="dialog" aria-labelledby="addBetter" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h4 class="modal-title" id="myModalLabel">Add the person you want to bet.</h4>
+
+							</div>
+							<div class="modal-body">
+								<div class="form-group">
+									<label for="username">email:</label>
+									<input type="username" class="form-control" id="email">
+								</div>
+								<div class="form-group">
+									<label for="username">First Name:</label>
+									<input type="username" class="form-control" id="firstname">
+								</div>
+								<div class="form-group">
+									<label for="username">Last Name:</label>
+									<input type="username" class="form-control" id="lastname">
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+								<button type="submit" class="btn btn-primary">Add person</button>
+							</div>
+						</div>
+					</div>
+				</div> -->
+			
+
+				<script>
+					$(document).ready(function () {
+						$.get("/api/bets/outstanding", function (data) {
+							console.log(data);
+							for (i = 0; i < data.length; i++) {
+								if (data[i].winner != null) {
+									if (data[i].over_under === data[i].winner) {
+										$("#collection").append('<div class="col col-md-6" style="padding-top: 20px;" data-id=' + data[i].id + '><h4>' + data[i].under_lose + ' owes ' + data[i].over_win + ' $ ' + data[i].amount + ' for ' + data[i].event + '</h4><button class="btn btn-danger" id="pay">PAY NOW</button></div>');
+									}
+									else {
+										$("#collection").append('<div class="col col-md-6" style="padding-top: 20px;" data-id=' + data[i].id + '><h4>' + data[i].over_win + ' owes ' + data[i].under_lose + ' $ ' + data[i].amount + ' for ' + data[i].event + '</h4><button class="btn btn-danger" id="pay">PAY NOW</button></div>');
+									}
+								}
+							}
+						});
+						$("#collection").on("click", "#pay", function() {
+							var id = $(this).parent().attr("data-id");
+							console.log(id);
+							$.get("/api/bets/id/" + id, function (data) {
+								data.is_paid = true;
+								$.ajax({
+									method: "PUT",
+									url: "/api/bets",
+									data: data
+								}).then(function() {
+									window.location.href = "/balance";
+								});
+							});
+						});
+					});
+				</script>
+</body>
+
+</html>

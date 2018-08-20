@@ -1,3 +1,129 @@
 .list-group-item {
   line-height: 2.5;
 }
+
+
+    body {
+
+ font-family: Roboto, sans-serif; 
+  background: url('https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Feditorial%2Fimages%2F465254%2Fcasino-chips-falling-on-a-table.jpg&w=700&op=resize') no-repeat center center fixed;
+  /*Photo by rawpixel.com from Pexels*/
+    background-size: cover;
+    height: 100%;
+
+}
+
+.jumbotron {
+	font-size:18px;
+     background-color:#9f9b9b!important;
+}
+
+.uppercase { text-transform: uppercase; }
+header { text-align: center; font-size: 24px; }
+.bootstrap-select { width:100% !important; }
+#selected-date,
+#hidden-val {
+font-weight: bold;
+color: #333;
+}
+
+
+h3, h4 {
+ color: red;
+}
+
+.cf { background-color: #fff; }
+
+.cf th {
+	color: red;
+	background-color: #3d3d3d;
+}
+/*
+ul li a {
+ color: #9d9d9d !important;
+}
+
+.active {
+ color: black !important;
+}
+
+.nav nav-pills nav-stacked {
+ color:black !important;
+}
+
+.container {
+ color: red !important;
+
+}*/
+
+#login {
+ color: red;
+/* width: 30%;
+ margin-top: 200px;
+ margin-bottom: 100px;
+
+ margin-left: 450px;*/
+
+}
+
+#current {
+ background-color: black;
+ border: none;
+ color: #9d9d9d;
+ padding: 15px 32px;
+ text-align: center;
+ text-decoration: none;
+ display: inline-block;
+ font-size: 16px;
+ margin: 4px 2px;
+
+}
+#past {
+ background-color:black;
+ border: none;
+ color:#9d9d9d;
+ padding: 15px 32px;
+ text-align: center;
+ text-decoration: none;
+ display: inline-block;
+ font-size: 16px;
+ margin: 4px 2px;
+
+}
+#outstanding {
+ background-color:Black;
+ border: none;
+ color: #9d9d9d;
+ padding: 15px 32px;
+ text-align: center;
+ text-decoration: none;
+ display: inline-block;
+ font-size: 16px;
+ margin: 4px 2px;
+
+}
+
+#activitybuttons {
+
+ text-align: center;
+}
+/*h1 {
+ color:red;
+ text-align: center;
+}*/
+#recordtable {
+
+ text-align: center;
+ width: 50%;
+
+
+}
+
+tr {
+ color: black;
+ text-align: center;
+}
+
+th {
+ text-align: center;
+}

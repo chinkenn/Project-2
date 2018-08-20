@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <!-- Latest compiled and minified CSS & JS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css"
+  />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+  <link rel="stylesheet" href="styles/styles.css">
+
+
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+
+  <!-- $ npm install bootstrap-select -->
+  <title>gitbet</title>
+
+</head>
+
+<body>
+
+ <nav class="navbar navbar-inverse">
+   <div class="container-fluid">
+     <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">
+            <img src="/images/gitbet-logo.png" style="width:78px; top; margin-top: -8px;">
+        </a>
+    </div>
+     <div class="collapse navbar-collapse" id="myNavbar">
+       <ul class="nav navbar-nav">
+          <li class="active">
+              <a href="/">Home</a>
+          </li>
+          <li>
+              <a href="/createbet">Create Bet</a>
+          </li>
+          <li>
+              <a href="/balance">Balance</a>
+          </li>
+          <li>
+              <a href="/friends">View Pals</a>
+          </li>
+      </ul>
+       <ul class="nav navbar-nav navbar-right">
+         <li>
+           <a href="index">
+             <span class="glyphicon glyphicon-user"></span> Sign Up</a>
+         </li>
+         <li>
+           <a href="index">
+             <span class="glyphicon glyphicon-log-in"></span> Log in</a>
+         </li>
+       </ul>
+     </div>
+   </div>
+ </nav>
+
+  <main>
+<body>
+<main>
+    <div class="container">
+      <div class="jumbotron" style="color:red;">
+        <h2><span id="login" style="cursor: pointer;">Login</span>/<span id="newuser" style="cursor: pointer;">New User</span></h2>
+          <form>
+            <div class="form-group login">
+              <label for="username">User Name:</label>
+              <input type="username" class="form-control" id="username">
+            </div>
+            <div class="newuser">
+              <div class="form-group">
+                <label for="newUser">Create New Username:</label>
+                <input type="password" class="form-control" id="pwd">
+              </div>
+            </div>
+            <div class="form-group login">
+              <label for="pwd">Password:</label>
+              <input type="password" class="form-control" id="pwd">
+            </div>
+            <div class="newuser">
+              <div class="form-group">
+                <label for="pwd">Create New Password:</label>
+                <input type="password" class="form-control" id="pwd">
+              </div>
+            </div>
+            <div class="newuser">
+              <div class="form-group">
+                <label for="pwd">Add email address:</label>
+                <input type="email" class="form-control" id="email">
+              </div>
+            </div>
+            <div class="checkbox">
+              <label>
+              <input type="checkbox"> Remember me</label>
+            </div>
+            <button action="activity" type="submit" class="btn btn-default">Submit</button>
+          </form>
+      </div>
+    </div>
+</body>
+<script>
+  $('.newuser').hide();
+$('#login, #newuser').on('click',
+  function() {
+    $('.login, .newuser').toggle()
+  }
+);
+</script>
+</html>

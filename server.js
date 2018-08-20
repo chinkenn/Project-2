@@ -13,6 +13,17 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static("public"));
 
+
+// app.get("/", function(req, res) {
+//   res.sendFile(path.join(__dirname, "index.html"));
+// });
+
+// app.get("/createBet", function(req, res) {
+//   res.sendFile(path.join(__dirname, "createBet.html"));
+// });
+
+
+
 // Handlebars
 app.engine(
   "handlebars",

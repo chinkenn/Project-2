@@ -1,32 +1,53 @@
-<div id="home">
-  <div class="container">
-    <div class="row">
-      <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
-        <h2>This is our Home Page!</h2>
-        <form class="clearfix mb-4" action="POST">
-          <div class="form-group">
-            <label for="example-text">Example Text</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
-          </div>
-          <div class="form-group">
-            <label for="example-description">Example Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
-          </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
-        </form>
-        <h3>Examples:</h3>
-        <ul id="example-list" class="list-group">
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>
-      </div>
+<div class="container">
+    <div id="activitybuttons">
+        <button id="current" class="btn btn-warning">
+            <a href="/">Currents </a>
+        </button>
+        <button id="past">
+            <a href="/past">Past</a>
+        </button>
+        <button id="outstanding">
+            <a href="/outstanding">Outstanding</a>
+        </button>
     </div>
-  </div>
+    <div class="container" id="currenttable">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">
+                    {{msg}}
+                </h1>
+                <h3 class="text-center"></h3>
+            </div>
+            <div id="currenttable">
+                <table class="col-md-12 table-bordered table-striped table-condensed cf">
+                    <thead class="cf">
+                        <tr>
+                            <th>Over/Win</th>
+                            <th>Under/Loss</th>
+                            <th class="numeric">Amount</th>
+                            <th>Event</th>
+                            <th>Result</th>
+                            <th>End Date</th>
+                            <th>Paid</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each examples}}
+                        <tr>
+                            <td>{{this.over_win}}</td>
+                            <td>{{this.under_lose}}</td>
+                            <td>{{this.amount}}</td>
+                            <td>{{this.event}}</td>
+                            <td>{{this.winner}}</td>
+                            <td>{{this.end_date}}</td>
+                            <td>{{this.is_paid}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
